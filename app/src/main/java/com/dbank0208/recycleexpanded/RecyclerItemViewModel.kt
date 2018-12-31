@@ -8,39 +8,38 @@ import android.view.View
 class RecyclerItemViewModel(text1: String, text2: String) : BaseObservable() {
 
 
-    var text11: String = ""
-    var text22: String = ""
-    lateinit var onClickListenerr: View.OnClickListener
+    private var text1: String = ""
+    private var text2: String = ""
+    private var expandButtonText: String = ""
     private var expanded = false
-    var expandButtonTextt: String = ""
+    private lateinit var onClickListener: View.OnClickListener
 
     init {
-       this.text11 = text1
-      this.text22 = text2
+       this.text1 = text1
+       this.text2 = text2
     }
     public fun getText1(): String {
-        return text11
+        return text1
     }
 
     public fun getText2(): String {
-        return text22
+        return text2
     }
 
-    @Bindable
-    fun getExpandButtonText(): String {
-        return expandButtonTextt
+    public fun getExpandButtonText(): String {
+        return expandButtonText
     }
 
     fun setExpandButtonText(expandButtonText: String) {
-        this.expandButtonTextt = expandButtonText
+        this.expandButtonText = expandButtonText
     }
 
     fun onClickExpandButton(view: View) {
-        onClickListenerr.onClick(view)
+        onClickListener.onClick(view)
     }
 
     fun setOnClickListener(onClickListener: View.OnClickListener) {
-        this.onClickListenerr = onClickListener
+        this.onClickListener = onClickListener
     }
 
     fun setExpanded(expanded: Boolean) {
