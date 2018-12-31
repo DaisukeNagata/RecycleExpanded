@@ -38,13 +38,9 @@ class MainActivity : AppCompatActivity() {
     private class ListAdapter(private val context: Context, list: ObservableList<RecyclerItemViewModel>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
         private val list: List<RecyclerItemViewModel>
 
-        init {
-            this.list = list
-        }
+        init { this.list = list }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(context, parent)
-        }
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder { return ViewHolder(context, parent) }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val viewModel = getItem(position)
@@ -77,21 +73,15 @@ class MainActivity : AppCompatActivity() {
             holder.binding!!.executePendingBindings();
         }
 
-        override fun getItemCount(): Int {
-            return list.size
-        }
+        override fun getItemCount(): Int { return list.size }
 
-        fun getItem(position: Int): RecyclerItemViewModel {
-            return list[position]
-        }
+        fun getItem(position: Int): RecyclerItemViewModel {  return list[position] }
 
         inner class ViewHolder(context: Context, parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_item, parent, false)) {
 
-            internal var binding: RecyclerItemBinding? = null
+            var binding: RecyclerItemBinding? = null
 
-            init {
-                binding = DataBindingUtil.bind(itemView)
-            }
+            init { binding = DataBindingUtil.bind(itemView) }
         }
     }
 }
