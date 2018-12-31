@@ -49,24 +49,25 @@ class MainActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val viewModel = getItem(position)
             if (viewModel.isExpanded()) {
-                holder.binding!!.expandButton.isSelected = false
+                holder.binding!!.expandButton.isSelected = true
                 holder.binding!!.expandableLayout.expand(true)
             } else {
-                holder.binding!!.expandButton.isSelected = true
-                holder.binding!!.expandableLayout.collapse(true)
+                holder.binding!!.expandButton.isSelected = false
+                holder.binding!!.expandableLayout.collapse(false)
             }
 
             viewModel.setOnClickListener(View.OnClickListener()  {
                 if (viewModel.isExpanded()) {
                     holder.binding!!.expandButton.isSelected = false
-                    holder.binding!!.expandableLayout.collapse(true)
+                    holder.binding!!.expandableLayout.collapse(false)
                 } else {
                     holder.binding!!.expandButton.isSelected = true
                     holder.binding!!.expandableLayout.expand(true)
                 }
-                val anim = ObjectAnimator.ofFloat(holder.binding!!.expandArrow, "rotation",0.toFloat(),180.toFloat())
-                anim.setDuration(150)
-                anim.start()
+                //TODO:　To clarify
+                //val anim = ObjectAnimator.ofFloat(holder.binding!!.expandArrow, "rotation",0.toFloat(),180.toFloat())
+                //anim.setDuration(150)
+                //anim.start()
                 viewModel.setExpanded(!viewModel.isExpanded())
             })
 
