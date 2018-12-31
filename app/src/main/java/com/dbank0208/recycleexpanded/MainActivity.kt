@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             val viewModel = getItem(position)
             if (viewModel.isExpanded()) {
                 holder.binding!!.expandButton.isSelected = true
-                holder.binding!!.expandableLayout.expand(true)
+                holder.binding!!.expandableLayout.expand(false)
             } else {
                 holder.binding!!.expandButton.isSelected = false
                 holder.binding!!.expandableLayout.collapse(false)
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
             viewModel.setOnClickListener(View.OnClickListener()  {
                 if (viewModel.isExpanded()) {
                     holder.binding!!.expandButton.isSelected = false
-                    holder.binding!!.expandableLayout.collapse(false)
+                    holder.binding!!.expandableLayout.collapse(true)
                 } else {
                     holder.binding!!.expandButton.isSelected = true
                     holder.binding!!.expandableLayout.expand(true)
