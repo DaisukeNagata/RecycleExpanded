@@ -1,7 +1,6 @@
 package com.dbank0208.recycleexpanded
 
 import android.databinding.BaseObservable
-import android.databinding.Bindable
 import android.view.View
 
 class RecyclerItemViewModel(text1: String, text2: String) : BaseObservable() {
@@ -13,10 +12,9 @@ class RecyclerItemViewModel(text1: String, text2: String) : BaseObservable() {
     private lateinit var onClickListener: View.OnClickListener
 
     init {
-       this.text1 = text1
-       this.text2 = text2
+        this.text1 = text1
+        this.text2 = text2
     }
-
 
     public fun getText1(): String { return text1 }
 
@@ -33,5 +31,4 @@ class RecyclerItemViewModel(text1: String, text2: String) : BaseObservable() {
     fun setExpandButtonText(expandButtonText: String) { this.expandButtonText = expandButtonText }
 
     fun setOnClickListener(onClickListener: View.OnClickListener) { this.onClickListener = onClickListener }
-
 }
