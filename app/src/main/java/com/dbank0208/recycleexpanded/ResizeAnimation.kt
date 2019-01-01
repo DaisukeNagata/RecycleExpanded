@@ -9,7 +9,7 @@ class ResizeAnimation(view: View,addHeight: Int,startHeight: Int) : Animation() 
     private  var addHeight  = 0
     private  var startHeight = 0
     private  var view: View? = null
-
+    
     init {
         this.addHeight = addHeight
         this.startHeight = startHeight
@@ -22,7 +22,5 @@ class ResizeAnimation(view: View,addHeight: Int,startHeight: Int) : Animation() 
         view!!.requestLayout()
     }
 
-    override fun willChangeBounds(): Boolean {
-        return true
-    }
+    override fun willChangeBounds(): Boolean { return true }
 }

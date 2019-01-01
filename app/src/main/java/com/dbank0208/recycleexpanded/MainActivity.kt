@@ -14,7 +14,6 @@ import android.widget.RelativeLayout
 import com.dbank0208.recycleexpanded.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.recycler_item.*
 
-
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
