@@ -20,24 +20,24 @@ class ListAdapter( private val context: Context, list: ObservableList<RecyclerIt
         val viewModel = getItem(position)
 
         var originalHeight = 200
-        var collapseAnimation = ResizeAnimation(holder.binding!!.expandableLayout, -originalHeight, originalHeight)
-        var expandAnimation = ResizeAnimation(holder.binding!!.expandableLayout, originalHeight, 0)
+        val collapseAnimation = holder?.binding?.expandableLayout?.let { ResizeAnimation(it, -originalHeight, originalHeight) }
+        val expandAnimation = holder?.binding?.expandableLayout?.let { ResizeAnimation(it, originalHeight, 0) }
 
         if (viewModel.isExpanded()) {
-            holder.binding!!.expandButton.isSelected = true
-            holder.binding!!.expandableLayout.startAnimation(expandAnimation)
+            holder?.binding?.expandButton?.isSelected = true
+            holder?.binding?.expandableLayout?.startAnimation(expandAnimation)
         } else {
-            holder.binding!!.expandButton.isSelected = false
-            holder.binding!!.expandableLayout.startAnimation(collapseAnimation)
+            holder?.binding?.expandButton?.isSelected = false
+            holder?.binding?.expandableLayout?.startAnimation(collapseAnimation)
         }
 
         viewModel.setOnClickListener(View.OnClickListener  {
             if (viewModel.isExpanded()) {
-                holder.binding!!.expandButton.isSelected = false
-                holder.binding!!.expandableLayout.startAnimation(collapseAnimation)
+                holder?.binding?.expandButton?.isSelected = false
+                holder?.binding?.expandableLayout?.startAnimation(collapseAnimation)
             } else {
-                holder.binding!!.expandButton.isSelected = true
-                holder.binding!!.expandableLayout.startAnimation(expandAnimation)
+                holder?.binding?.expandButton?.isSelected = true
+                holder?.binding?.expandableLayout?.startAnimation(expandAnimation)
 
             }
             viewModel.setExpanded(!viewModel.isExpanded())
@@ -45,8 +45,8 @@ class ListAdapter( private val context: Context, list: ObservableList<RecyclerIt
 
         viewModel.setExpandButtonText("Test"+ position.toString())
 
-        holder.binding!!.setViewModel(viewModel)
-        holder.binding!!.executePendingBindings()
+        holder?.binding?.setViewModel(viewModel)
+        holder?.binding?.executePendingBindings()
     }
 
     override fun getItemCount(): Int { return list.size }
