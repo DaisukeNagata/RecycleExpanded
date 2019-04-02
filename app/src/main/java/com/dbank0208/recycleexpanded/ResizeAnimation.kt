@@ -8,7 +8,7 @@ class ResizeAnimation(view: View,addHeight: Int,startHeight: Int) : Animation() 
 
     private  var addHeight  = 0
     private  var startHeight = 0
-    private  var view: View? = null
+    lateinit var view: View
     
     init {
         this.addHeight = addHeight
@@ -18,8 +18,8 @@ class ResizeAnimation(view: View,addHeight: Int,startHeight: Int) : Animation() 
 
     override fun applyTransformation(interpolatedTime: Float, t: Transformation) {
         val newHeight = (startHeight + addHeight * interpolatedTime).toInt()
-        view!!.getLayoutParams().height = newHeight
-        view!!.requestLayout()
+        view.getLayoutParams().height = newHeight
+        view.requestLayout()
     }
 
     override fun willChangeBounds(): Boolean { return true }
